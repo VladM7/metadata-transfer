@@ -15,7 +15,7 @@ images_path = config["frames_folder_path"]
 # Load all images from the frames folder
 images = []
 image_file_paths = []
-for image_file in os.listdir(images_path):
+for image_file in sorted(os.listdir(images_path)):
     if image_file.endswith((".jpg", ".jpeg", ".TIF")):
         full_path = os.path.join(images_path, image_file)
         try:

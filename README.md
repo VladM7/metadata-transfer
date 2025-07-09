@@ -6,13 +6,17 @@ A Python script to transfer metadata from JSON files to images using the `piexif
 
 When I started doing film photography, I wanted to keep track of my settings for each photo for future reference (to see what different settings I should've used, or to remember what film I used for each photo, etc.). So I started writing down the settings on paper, but it was inconvenient. Then I found this amazing app called _[Exif Notes](https://play.google.com/store/apps/details?id=com.tommihirvonen.exifnotes&hl=en-US)_ (Android) that allows to easily input the settings and automatically fills in the location and the date. Then, all the data can be easily exported to a JSON file. However, I wanted to have the metadata directly in the image files for when I was editing them in Darktable or just browsing them, so I wrote this script to transfer it from the JSON files to the actual film scans.
 
-The configuration file supports the JSON files exported by _Exif Notes_ by default, but it can be easily adapted to work with other JSON structures as well.
+The configuration file supports the JSON files exported by _Exif Notes_ by default, but it can be easily adapted to work with other JSON structures as well. Check the [Configuration](#configuration) section for more details.
+
+## Download
+
+You can download the latest version of the script from the [releases page](https://github.com/VladM7/metadata-transfer/releases). For now, the only supported platform is Windows. You can also build it from source if you want to run it on Linux or macOS, but I haven't tested it on those platforms yet.
 
 ## Configuration
 
 A configuration file named `config.json` is already included in the repository. It is used for specifying the source directory containing the images and the destination directory where the modified images will be saved.
 
-First make sure to change the `input_json_file` and `frames_folder_path` fields in the `config.json` file to point to the correct directories on your system.
+First make sure to change the `input_json_file` and `frames_folder_path` fields in the `config.json` file to point to the correct directories on your system. The `input_json_file` should point to the JSON file containing the metadata, and the `frames_folder_path` should point to the folder containing the images you want to modify. Both absolute paths and relative paths are supported.
 
 ```json
 {
@@ -86,6 +90,12 @@ The ISO and camera parameters can be specified either only once or multiple time
 Additional fields present in the JSON files will be ignored (such as `city` in the example above). In the future the script may be extended to support more fields, but for now it is focused on the most commonly used metadata fields.
 
 For now I opted for a safer, but more manual approach in which the user has to specify the field mappings in the configuration file, but in the future I may add a feature to automatically detect the fields in the JSON files and create a default mapping based on that (probably using AI).
+
+## Other Remarks
+
+- by default, the images are processed in the alphabetical order of their filenames (first frame in the input file corresponds to the first image in the folder, second frame to the second image, and so on).
+- the script will modify the original images by adding the metadata to them, so make sure to back them up first if you want to keep the original files unchanged; there will be no modifications to the actual content of the images, only the metadata will be added.
+- the other metadata parameters (such as `title`, `comments`, etc.) will not be overwritten, only the ones specified in the configuration file will be added or updated.
 
 ## Contributing
 
