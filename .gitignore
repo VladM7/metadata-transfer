@@ -1,2 +1,32 @@
 frames
 input.json
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# PyInstaller build folders
+build/
+dist/
+*.spec
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Test output
+*.pytest_cache/

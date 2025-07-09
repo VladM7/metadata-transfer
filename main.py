@@ -250,3 +250,5 @@ for idx, (im, original_path, metadata) in enumerate(
         )
         traceback.print_exc()
         continue
+
+input("Press any key to continue...")
