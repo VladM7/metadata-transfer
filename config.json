@@ -1,0 +1,30 @@
+{
+  "input_json_file": "input.json",
+  "frames_folder_path": "frames/",
+  "field_mappings": {
+    "iso": { "path": "iso" },
+    "camera": {
+      "fields": {
+        "make": { "path": "camera.make" },
+        "model": { "path": "camera.model" }
+      }
+    },
+    "shutter": { "path": "shutter" },
+    "aperture": { "path": "aperture" },
+    "focal_length": { "path": "focalLength" },
+    "lens": {
+      "fields": {
+        "make": { "path": "lens.make" },
+        "model": { "path": "lens.model" }
+      }
+    },
+    "date": { "path": "date" },
+    "location": {
+      "fields": {
+        "latitude": { "path": "location.latitude" },
+        "longitude": { "path": "location.longitude" }
+      }
+    },
+    "description": { "path": "note" }
+  }
+}
